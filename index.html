@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abdurauf Fitrat — Milliy Uyg'onish Siymosi</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Spectral:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --parchment: #f5ead6;
+            --old-paper: #e8dcc4;
+            --sepia: #704214;
+            --dark-brown: #3e2723;
+            --vintage-gold: #b8860b;
+            --burnt-sienna: #8b4513;
+            --olive: #6b6b47;
+            --cream: #faf8f3;
+            --charcoal: #2a1810;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Spectral', serif;
+            background: var(--parchment);
+            color: var(--charcoal);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Subtle texture */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(112, 66, 20, 0.02) 2px, rgba(112, 66, 20, 0.02) 4px),
+                repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(112, 66, 20, 0.02) 2px, rgba(112, 66, 20, 0.02) 4px);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* Header */
+        header {
+            padding: 4rem 2rem 3rem;
+            text-align: center;
+            border-bottom: 3px solid var(--sepia);
+            position: relative;
+            background: linear-gradient(180deg, var(--cream) 0%, var(--parchment) 100%);
+            animation: fadeIn 1s ease-out;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 3px;
+            background: var(--vintage-gold);
+        }
+
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 700;
+            color: var(--sepia);
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
+            animation: slideDown 0.8s ease-out 0.2s backwards;
+        }
+
+        .subtitle {
+            font-family: 'Crimson Text', serif;
+            font-size: clamp(1.1rem, 3vw, 1.5rem);
+            color: var(--burnt-sienna);
+            font-style: italic;
+            margin-bottom: 1rem;
+            animation: slideDown 0.8s ease-out 0.4s backwards;
+        }
+
+        .years {
+            font-size: 1.1rem;
+            color: var(--olive);
+            font-weight: 600;
+            animation: slideDown 0.8s ease-out 0.6s backwards;
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--dark-brown);
+            padding: 1.2rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--cream);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            position: relative;
+            padding-bottom: 4px;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--vintage-gold);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--vintage-gold);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        /* Sections */
+        section {
+            margin-bottom: 5rem;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        section:nth-child(1) { animation-delay: 0.1s; }
+        section:nth-child(2) { animation-delay: 0.2s; }
+        section:nth-child(3) { animation-delay: 0.3s; }
+        section:nth-child(4) { animation-delay: 0.4s; }
+
+        h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            color: var(--burnt-sienna);
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--vintage-gold) 0%, transparent 100%);
+        }
+
+        h3 {
+            font-family: 'Crimson Text', serif;
+            font-size: 1.8rem;
+            color: var(--sepia);
+            margin: 2rem 0 1rem;
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 1.2rem;
+            font-size: 1.1rem;
+            text-align: justify;
+        }
+
+        /* Quote Box */
+        .quote-box {
+            background: linear-gradient(135deg, var(--olive) 0%, var(--burnt-sienna) 100%);
+            padding: 2.5rem;
+            margin: 3rem 0;
+            border-left: 5px solid var(--vintage-gold);
+            position: relative;
+            color: var(--cream);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+        }
+
+        .quote-box::before {
+            content: '"';
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 6rem;
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            color: rgba(255,255,255,0.2);
+            line-height: 1;
+        }
+
+        .quote-box p {
+            font-family: 'Crimson Text', serif;
+            font-size: 1.3rem;
+            font-style: italic;
+            margin: 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 3rem;
+            margin: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, var(--sepia) 0%, var(--vintage-gold) 50%, var(--burnt-sienna) 100%);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-bottom: 2rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -3.5rem;
+            top: 0.5rem;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: var(--vintage-gold);
+            border: 3px solid var(--parchment);
+            box-shadow: 0 0 0 3px var(--sepia);
+        }
+
+        .timeline-year {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--sepia);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Grid Layout for Works */
+        .works-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .work-card {
+            background: var(--cream);
+            padding: 2rem;
+            border: 2px solid var(--old-paper);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .work-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--vintage-gold), var(--burnt-sienna));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .work-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 28px rgba(0,0,0,0.15);
+        }
+
+        .work-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .work-card h4 {
+            font-family: 'Crimson Text', serif;
+            font-size: 1.4rem;
+            color: var(--burnt-sienna);
+            margin-bottom: 0.8rem;
+        }
+
+        .work-card p {
+            font-size: 1rem;
+            text-align: left;
+        }
+
+        /* Legacy section */
+        .legacy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .legacy-item {
+            background: linear-gradient(135deg, var(--cream) 0%, var(--parchment) 100%);
+            padding: 1.5rem;
+            border-left: 4px solid var(--burnt-sienna);
+            transition: all 0.3s ease;
+        }
+
+        .legacy-item:hover {
+            border-left-color: var(--vintage-gold);
+            transform: translateX(8px);
+        }
+
+        .legacy-item h4 {
+            font-family: 'Crimson Text', serif;
+            color: var(--sepia);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--charcoal);
+            color: var(--cream);
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+        }
+
+        footer p {
+            margin: 0.5rem 0;
+            text-align: center;
+        }
+
+        .footer-quote {
+            font-family: 'Crimson Text', serif;
+            font-style: italic;
+            font-size: 1.2rem;
+            margin-top: 1.5rem;
+            color: var(--vintage-gold);
+        }
+
+        /* Animations - Optimized with will-change */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 1rem;
+            }
+
+            nav a {
+                font-size: 0.9rem;
+            }
+
+            .timeline {
+                padding-left: 2rem;
+            }
+
+            .timeline-item::before {
+                left: -2.4rem;
+            }
+
+            .quote-box {
+                padding: 1.5rem;
+            }
+        }
+
+        /* Ornamental dividers */
+        .divider {
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .divider::after {
+            content: '❖';
+            font-size: 1.5rem;
+            color: var(--vintage-gold);
+        }
+
+        /* Reduce motion for accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Abdurauf Fitrat</h1>
+        <p class="subtitle">Oʻzbek Milliy Uyg'onishining Poʻlat Qahramon</p>
+        <p class="years">1886–1938</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#hayot">Hayoti</a></li>
+            <li><a href="#faoliyat">Faoliyati</a></li>
+            <li><a href="#asarlar">Asarlari</a></li>
+            <li><a href="#meros">Merosi</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section id="hayot">
+            <h2>Hayoti va Ta'limi</h2>
+            <p>Abdurauf Fitrat 1886-yilda Buxoro shahrida ziyoli oilasida dunyoga kelgan. U o'zbek tarixchisi, filolog, tarjimon, yozuvchi, dramaturg va shoir, zamonaviy o'zbek tili va adabiyoti asoschilari­dan biri, O'rta Osiyo jadidchiligining taniqli vakili va birinchi o'zbek professori (1929) bo'lgan.</p>
+
+            <p>Dastlab eski maktabda, keyinchalik Buxorodagi Mir Arab madrasasida tahsil olgan. 1902-1903-yillarda haj safariga chiqqan va Arabiston, Anatoliya, Kavkazorta, Eron, Afg'oniston, Hindiston bo'ylab sayohat qilgan.</p>
+
+            <div class="quote-box">
+                <p>Miya o'zgarmaguncha boshqa o'zgarishlar negiz tutmas!</p>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-year">1886</div>
+                    <p>Buxoro shahrida tug'ildi</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">1908–1913</div>
+                    <p>Istanbulda Voizon madrasasida tahsil oldi. Shu davrda "Fitrat — Donishmand" taxallusini oldi</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">1915</div>
+                    <p>"Yosh buxoroliklar" harakatining so'l qanotiga boshchilik qildi</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">1917–1918</div>
+                    <p>Samarqandda "Hurriyat" gazetasiga muharrirlik qildi</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">1921–1923</div>
+                    <p>Buxoro Xalq Sovet Respublikasida ta'lim vaziri va iqtisodiy rivojlanish kengashi rahbari</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">1923–1927</div>
+                    <p>Moskvada va Leningradda Sharqshunoslik institutida ishladi, professor unvonini oldi</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">1927–1937</div>
+                    <p>Samarqand va Toshkentdagi pedagogika institutlarida faoliyat ko'rsatdi</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">1938</div>
+                    <p>Stalin repressiyasi qurboni bo'ldi</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="divider"></div>
+
+        <section id="faoliyat">
+            <h2>Jadidchilik va Milliy Uyg'onish</h2>
+            
+            <h3>Maʼrifatparvarlik Harakati</h3>
+            <p>Fitrat jadidchilik milliy ma'rifatparvarlik harakatining tarafdori bo'lgan. Turkiyada ta'lim olgan davrida "Yosh turklar" harakatidan ilhomlanib, Buxoroda "Yosh buxoroliklar" partiyasini tuzgan va uning ma'naviy rahnamosiga aylangan.</p>
+
+            <p>U xalqni ma'rifat va madaniyatdan bahramand qilish uchun astoydil kurashdi. Buxoroning turli tumanlarida o'qituvchilik qilib, jadidchilik g'oyalarini keng targ'ib etdi.</p>
+
+            <h3>Ta'lim Islohoti</h3>
+            <p>1922-yilda do'sti Munzim bilan hamkorlikda 70 nafar turkistonlik istiqbolli yoshlarni Germaniyaning bir qator oliy ta'lim muassasalariga o'qishga yubordi. Buxoro Xalq Sovet Respublikasida turk (o'zbek) tili davlat tili deb e'lon qilindi.</p>
+
+            <div class="quote-box">
+                <p>Goʻzal yulduz, yerimizning eng qadrli tuqg'ani!<br>
+                Nega bizdan qochib muncha uzolarg'a tushibsan;<br>
+                Tuvg'aningga nechun sira gapurmasdan turibsan?</p>
+            </div>
+
+            <h3>Madaniy Yo'nalishlar</h3>
+            <p>1921-yilda Buxoroda Sharq musiqasi maktabini tashkil etdi va birinchi direktor bo'ldi. Shu davrda "Shashmaqom" kuylarini to'plash va notaga yozib olish ishlariga rahbarlik qildi. Davlat teatri tashkil qilinib, bu teatrda ishlash uchun Mannon Uyg'ur va Cho'lpon taklif etildi.</p>
+        </section>
+
+        <div class="divider"></div>
+
+        <section id="asarlar">
+            <h2>Adabiy va Ilmiy Merosi</h2>
+            
+            <p>Fitratning adabiy merosi rang-barang. U badiiy ijodning barcha turlarida qalam tebratib, o'zbek adabiyotining yangi janr va turlar bilan boyishi, she'r tuzilishining isloh etilishi, adabiy realizmning teranla­shishiga ulkan hissa qo'shdi.</p>
+
+            <h3>Asosiy Asarlari</h3>
+
+            <div class="works-grid">
+                <div class="work-card">
+                    <h4>Munozara (1908)</h4>
+                    <p>Jadid ma'rifatparvarligining dasturi bo'lib xizmat qilgan asar. Hindistonda bir farangı ila buxorolik bir mudarrisning munozarasi.</p>
+                </div>
+
+                <div class="work-card">
+                    <h4>Sayyohi hindi (1913)</h4>
+                    <p>XX asr boshlarida Turkistondagi milliy uyg'onish harakatining norasmiy dasturi bo'lib xizmat qilgan.</p>
+                </div>
+
+                <div class="work-card">
+                    <h4>Abulfayzxon (1924)</h4>
+                    <p>Shekspirona epik ko'lami bilan ajralib turuvchi tragediya. O'zbek adabiyotida tragediya janriga asos soldi.</p>
+                </div>
+
+                <div class="work-card">
+                    <h4>Rahbari najot (1915)</h4>
+                    <p>Tafsir, hadis, fiqh, kalom ilmlari, falsafiy va dunyoviy ilmlar to'g'risida risola.</p>
+                </div>
+
+                <div class="work-card">
+                    <h4>Qiyomat (1920)</h4>
+                    <p>O'zbek adabiyotida fantastikaning tug'ilishi va shakllanishida milliy manba bo'lib xizmat qildi.</p>
+                </div>
+
+                <div class="work-card">
+                    <h4>Oila (1916)</h4>
+                    <p>Oilaning jamiyat va inson hayotidagi rolini oshirishga qaratilgan risola.</p>
+                </div>
+            </div>
+
+            <h3>Ilmiy Tadqiqotlar</h3>
+            <p>Fitrat o'zbek tilining grammatikasini o'rganish ishlarini boshlab bergan. 1918-yilda "Ona tili" darsligini yaratdi. 1924 va 1925-yillarda "O'zbek tili qoidalari to'g'risida bir tajriba: Sarf" va "Nahv" darsliklarini yaratdi.</p>
+
+            <p>"Eng eski turk adabiyoti namunalari" (1927), "O'zbek adabiyoti namunalari" (1928) tazkiralarini tuzib, milliy adabiy merosimizning namunalarini to'plab, muayyan tizimga soldi.</p>
+
+            <div class="works-grid">
+                <div class="work-card">
+                    <h4>Adabiyotshunoslik</h4>
+                    <p>Navoiy, Bedil, Ahmad Yasaviy, Mashrab va boshqa shoir va yozuvchilar haqida tadqiqotlar olib bordi.</p>
+                </div>
+
+                <div class="work-card">
+                    <h4>Tilshunoslik</h4>
+                    <p>O'zbek tili morfologiyasi va sintaksisiga bag'ishlangan asarlar bilan grammatika faniga tamal toshini qo'ydi.</p>
+                </div>
+
+                <div class="work-card">
+                    <h4>Musiqashunoslik</h4>
+                    <p>"O'zbek klassik musiqasi va uning tarixi" (1927) risolasi bilan XX asr o'zbek musiqashunoslik fanini boshlab berdi.</p>
+                </div>
+
+                <div class="work-card">
+                    <h4>Tarixshunoslik</h4>
+                    <p>"Amir Olimxonning hukmronlik davri" va boshqa tarixiy tadqiqotlar yaratdi.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="divider"></div>
+
+        <section id="meros">
+            <h2>Xotira va Meros</h2>
+            
+            <p>Fitrat ilg'or demokratik g'oya va fikrlari uchun ko'pchilik jadidlar qatorida shakkoklik va isyonkorlikda ayblandi. 1937-yilda NKVD tomonidan qamoqqa olindi va 1938-yil 4-oktyabr kuni Toshkentda otib o'ldirildi. 1963-yilda Stalin vafotidan so'ng Fitrat nomi oqlandi.</p>
+
+            <h3>Mukofotlar va Tan olinish</h3>
+
+            <div class="legacy-grid">
+                <div class="legacy-item">
+                    <h4>Davlat Mukofoti</h4>
+                    <p>1991-yil 25-sentabrda Alisher Navoiy nomidagi O'zbekiston Respublikasi Davlat mukofoti berildi</p>
+                </div>
+
+                <div class="legacy-item">
+                    <h4>Mustaqillik Ordeni</h4>
+                    <p>O'zbek dramaturgiyasini rivojlantirishdagi xizmatlari uchun</p>
+                </div>
+
+                <div class="legacy-item">
+                    <h4>Ko'chalar va Maktablar</h4>
+                    <p>Toshkent va Buxoroda Fitrat nomidagi ko'chalar va maktablar ochildi</p>
+                </div>
+
+                <div class="legacy-item">
+                    <h4>Muzey</h4>
+                    <p>1996-yilda Buxoro shahrida Fitrat bog'i va uy-muzeyi tashkil qilindi</p>
+                </div>
+
+                <div class="legacy-item">
+                    <h4>Haykal</h4>
+                    <p>Buxoro shahrida Fitrat haykali o'rnatildi</p>
+                </div>
+
+                <div class="legacy-item">
+                    <h4>110 Yillik Yubiley</h4>
+                    <p>1996-yilda tavalludining 110-yilligi mamlakat miqyosida nishonlandi va pochta markalari chiqarildi</p>
+                </div>
+            </div>
+
+            <h3>Ilmiy Hissa</h3>
+            <p>Fitrat o'z hayoti davomida yuzlab ijtimoiy-publitsistik maqolalar, o'nlab ijtimoiy-siyosiy va ilmiy risolalar yaratdi. U nafaqat Turkistonda, balki Afg'oniston, Hindiston, Turkiya, Kavkaz, Volgabo'yi matbuotida ham faol ishtirok etdi.</p>
+
+            <p>U birinchi o'zbek professori sifatida (1929) o'zbek adabiyotshunoslik maktabiga poydevor qo'ydi va milliy adabiy merosimizni saqlash va rivojlantirishga katta hissa qo'shdi.</p>
+
+            <div class="quote-box">
+                <p>Fitrat — milliy ong-hushni uyg'otgan, xalqini istiqlol yo'liga boshlagan ulug' ziyoli va milliy qahramondir.</p>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p><strong>Abdurauf Fitrat</strong></p>
+        <p>1886–1938</p>
+        <p>O'zbek Milliy Uyg'onishining Siymosi</p>
+        <p class="footer-quote">"Bir millatning kamoli faqat ilm va ma'rifat bilandir"</p>
+	<p><b> Sodiqov Sardor , Hasanov Fayzbek , Umarov Isfandiyor</b></p>
+    </footer>
+</body>
+</html>
+
